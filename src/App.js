@@ -1,5 +1,6 @@
-import './App.scss';
 import React, { useState } from 'react'
+
+import styles from './App.module.scss'
 
 
 function App() {
@@ -10,6 +11,10 @@ function App() {
 
   const calculate = (e) => {
     setResult(result.concat(e.target.value));
+  }
+
+  const plusMinus = () => {
+    setResult(`${-result}`);
   }
 
   const equals = () => {
@@ -28,7 +33,8 @@ function App() {
     },
     {
       val: '+/-',
-      classes: 'bg-calcGrey'
+      classes: 'bg-calcGrey',
+      customFunction: plusMinus
     },
     {
       val: '%',
@@ -107,8 +113,8 @@ function App() {
   const [result, setResult] = useState('');
 
   return (
-    <div className="App w-[428px] bg-black rounded-[30px] p-4 m-5">
-      <input className="App__input mb-2 bg-transparent text-primary text-end w-full p-1" defaultValue={result} />
+    <div className={`${styles.App} w-[428px] bg-black rounded-[30px] p-4 m-5`}>
+      <input className={`${styles.App__input} mb-2 bg-transparent text-primary text-end w-full p-1`} defaultValue={result} />
       <div className="App__buttons grid gap-3 grid-cols-4">
         {buttons.map(item =>
           <button
