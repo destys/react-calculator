@@ -1,0 +1,11 @@
+.App {
+    &__input {
+        line-height: 1.6;
+        font-size: 90px;
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+}
